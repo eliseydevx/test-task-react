@@ -1,39 +1,39 @@
-// import { action, makeAutoObservable, makeObservable } from "mobx";
-// import api from "../api/Api";
+import { action, makeAutoObservable, makeObservable, observable } from "mobx";
+import api from "../api/Api";
 
-// class SearchStore {
-//   querySearch = "Capybara";
-//   cards = [];
-//   isSubmitted = false;
+class SearchStore {
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-//   constructor() {
-//     makeAutoObservable(this);
-//   }
+  querySearch = "Capybara";
+  cards = [];
+  isSubmitted = false;
 
-//   @action handleSubmit = (e) => {
-//     e.preventDefault();
-//     this.isSubmitted = true;
-//     this.fetchData();
-//   };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.isSubmitted = true;
+    this.search();
+  };
 
-//   @action setQuerySearch = (newQuerySearch) => {
-//     this.querySearch = newQuerySearch;
-//   };
+  setQuerySearch = (newQuerySearch) => {
+    this.querySearch = newQuerySearch;
+  };
 
-//   @action fetchData = () => {
-//     if (this.isSubmitted) {
-//       api.search(this.querySearch).then((data) => {
-//         this.cards = data.results.map((item) => ({
-//           id: item.id,
-//           src: item.urls.regular,
-//           alt: item.alt_description,
-//           title: item.description,
-//           subtitle: item.user.name,
-//         }));
-//         this.isSubmitted = false;
-//       });
-//     }
-//   };
-// }
+  search = async () => {
+    if (this.isSubmitted) {
+      api.search(this.querySearch).then((data) => {
+        this.cards = data.results.map((item) => ({
+          id: item.id,
+          src: item.urls.regular,
+          alt: item.alt_description,
+          title: item.description,
+          subtitle: item.user.name,
+        }));
+        this.isSubmitted = false;
+      });
+    }
+  };
+}
 
-// export const store = new SearchStore();
+export const searchStore = new SearchStore();

@@ -6,7 +6,7 @@ function Input({ placeholder, value, handleChange }) {
       className="Input"
       type="text"
       placeholder={placeholder}
-      onChange={(e) => handleChange(e.target.value)}
+      onChange={handleChange}
       value={value}
     />
   );
