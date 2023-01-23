@@ -1,0 +1,15 @@
+@import "../../scss/_variables.scss";
+
+.Photo {
+  &-image {
+    border-radius: 6px;
+    width: 70%;
+  }
+  &-title {
+    font-size: 25px;
+    color: $accent;
+  }
+  &-subtitle {
+    color: #767676;
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../scss/variables";
+
+.App {
+  text-align: center;
+  font-family: $default-font;
+  color: $accent;
+  max-width: 860px;
+  margin: 90px auto;
+}
+
+// .App-content {
+//   max-width: 860px;
+//   margin: 90px auto;
+// }
+
+// .App-search {
+//   display: flex;
+//   justify-content: space-between;
+//   margin-bottom: 24px;
+// }
+
+// .App-cards {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+//   margin-bottom: 48px;
+// }
