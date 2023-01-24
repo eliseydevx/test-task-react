@@ -22,7 +22,7 @@ const Main = observer(() => {
         <Input
           placeholder={"type to search..."}
           value={searchStore.querySearch}
-          handleChange={(e) => (searchStore.setQuerySearch(e.target.value))}
+          handleChange={(e) => searchStore.setQuerySearch(e.target.value)}
         />
         <Button title="Search" type="submit" />
       </form>
@@ -37,33 +37,5 @@ const Main = observer(() => {
     </div>
   );
 });
-
-// function Main() {
-
-//   useEffect(() => {
-//     fetchData();
-//   }, [isSubmitted]);
-
-//   return (
-//     <div className="Main">
-//       <form className="Main-search" onSubmit={handleSubmit}>
-//         <Input
-//           placeholder={"type to search..."}
-//           value={querySearch}
-//           handleChange={(e) => setQuerySearch(e.target.value)}
-//         />
-//         <Button title="Search" type="submit" />
-//       </form>
-
-//       <div className="Main-cards">
-//         {isSubmitted ? (
-//           <Spin />
-//         ) : (
-//           cards.map((card) => <Card key={card.id} {...card} />)
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
 
 export default Main;
